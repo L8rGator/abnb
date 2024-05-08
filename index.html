@@ -43,9 +43,10 @@ function calculateA() {
     return;
   }
   
-  var A = (desiredRating * numOfRatings - currentRating * numOfRatings) / (5 - desiredRating);
+  // Round up the number of additional reviews needed to the next whole number
+  var A = Math.ceil((desiredRating * numOfRatings - currentRating * numOfRatings) / (5 - desiredRating));
   
-  document.getElementById("result").innerHTML = "Number of additional 5.0 reviews you need to reach desired rating (of " + desiredRating + " stars): " + A.toFixed(2);
+  document.getElementById("result").innerHTML = "Number of additional 5.0 reviews you need to reach desired rating (of " + desiredRating + " stars): " + A;
 }
 </script>
 <p></p>
