@@ -8,11 +8,11 @@
 <body>
 <h2>Rating Calculator</h2>
 <form id="ratingForm">
-  <label for="currentRating">Current Rating (R):</label><br>
+  <label for="currentRating">What is your Current Star Rating out of 5 stars(R):</label><br>
   <input type="number" id="currentRating" name="currentRating" min="0" max="5" step="0.1" required><br>
-  <label for="desiredRating">Desired Rating (D):</label><br>
+  <label for="desiredRating">What is your Desired Rating out of 5 stars(D):</label><br>
   <input type="number" id="desiredRating" name="desiredRating" min="0" max="5" step="0.1" required><br>
-  <label for="numOfRatings">Number of Ratings (N):</label><br>
+  <label for="numOfRatings">How many reviews do you currenty have:</label><br>
   <input type="number" id="numOfRatings" name="numOfRatings" min="0" required><br>
   <button type="button" onclick="calculateA()">Calculate</button>
 </form>
@@ -24,9 +24,9 @@ function calculateA() {
   var desiredRating = parseFloat(document.getElementById("desiredRating").value);
   var numOfRatings = parseFloat(document.getElementById("numOfRatings").value);
   
-  var A = ((desiredRating * (numOfRatings + 1)) - (currentRating * numOfRatings)) / (5 - desiredRating);
+ var A = (desiredRating * numOfRatings - currentRating * numOfRatings) / (5 - desiredRating);
   
-  document.getElementById("result").innerHTML = "Number of 5.0 ratings needed to reach desired rating: " + A.toFixed(2);
+  document.getElementById("result").innerHTML = "Number of additional 5.0 reviews you need to reach desired rating: " + A.toFixed(2);
 }
 </script>
 </body>
