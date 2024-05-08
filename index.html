@@ -7,6 +7,9 @@
 </head>
 <body>
 <h2>Rating Calculator</h2>
+
+<br><br>This form will calculate how many more 5* reviews you need to get to bump your rating up.  Note:  once you have a review that is less than 5*, you need to get it up to 4.995* for it to appear as 5* again.  <br><br>
+
 <form id="ratingForm">
   <label for="currentRating">What is your Current Star Rating out of 5 stars (between 0 and 4.99):</label><br>
   <input type="number" id="currentRating" name="currentRating" min="0" max="4.99" step="0.1" required><br></br>
@@ -28,7 +31,7 @@ function calculateA() {
   if (desiredRating >= 5.0) {
     desiredRating = 4.995;
     document.getElementById("desiredRating").value = desiredRating; // Update input value
-    alert("We have adjusted your desired rating to 4.995. This will appear to users as 5.0 even though mathematically you can never actually get a perfect 5.0 average because of your past less than stellar review(s).");
+    alert("We have adjusted your desired rating to 4.995. This will appear to users as 5.0 even though mathematically you can never actually get a perfect 5.0 average because of at least one less than stellar review(s).");
   }
 
   // Error checking for current rating
@@ -46,7 +49,7 @@ function calculateA() {
   // Round up the number of additional reviews needed to the next whole number
   var A = Math.ceil((desiredRating * numOfRatings - currentRating * numOfRatings) / (5 - desiredRating));
   
-  document.getElementById("result").innerHTML = "Number of additional 5.0 reviews you need to reach desired rating (of " + desiredRating + " stars): " + A;
+  document.getElementById("result").innerHTML = "<b>Number of additional 5.0 reviews you need to reach desired rating (of " + desiredRating + " stars): " + A+" </b>";
 }
 </script>
 <p></p>
