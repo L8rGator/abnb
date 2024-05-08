@@ -35,14 +35,14 @@ function calculateA() {
   }
 
   // Error checking for current rating
-  if (currentRating < 0 || currentRating > 4.99) {
-    alert("Current rating must be between 0 and 4.99 (inclusive).");
+  if (currentRating < 0 || currentRating > 5) {
+    alert("Current rating must be between 0 and 5 (inclusive).");
     return;
   }
 
   // Error checking for desired rating
-  if (desiredRating <= 0 || desiredRating > 5) {
-    alert("Desired rating must be between 0 and 5 (less than 5).");
+  if (desiredRating <= 0 || desiredRating > 4.999) {
+    alert("Desired rating must be between 0 and 4.995.");
     return;
   }
   
