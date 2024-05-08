@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rating Calculator</title>
+</head>
+<body>
+<h2>Rating Calculator</h2>
+<form id="ratingForm">
+  <label for="currentRating">Current Rating (R):</label><br>
+  <input type="number" id="currentRating" name="currentRating" min="0" max="5" step="0.1" required><br>
+  <label for="desiredRating">Desired Rating (D):</label><br>
+  <input type="number" id="desiredRating" name="desiredRating" min="0" max="5" step="0.1" required><br>
+  <label for="numOfRatings">Number of Ratings (N):</label><br>
+  <input type="number" id="numOfRatings" name="numOfRatings" min="0" required><br>
+  <button type="button" onclick="calculateA()">Calculate</button>
+</form>
+<p id="result"></p>
+
+<script>
+function calculateA() {
+  var currentRating = parseFloat(document.getElementById("currentRating").value);
+  var desiredRating = parseFloat(document.getElementById("desiredRating").value);
+  var numOfRatings = parseFloat(document.getElementById("numOfRatings").value);
+  
+  var A = ((desiredRating * (numOfRatings + 1)) - (currentRating * numOfRatings)) / (5 - desiredRating);
+  
+  document.getElementById("result").innerHTML = "Number of 5.0 ratings needed to reach desired rating: " + A.toFixed(2);
+}
+</script>
+</body>
+</html>
